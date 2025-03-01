@@ -106,6 +106,76 @@ P = \sqrt{3} \times 110 \times 3.67 = 700W
 3. Compile and run the code in Code Composer Studio (CCS).
 4. Verify SPWM signals and inverter output.
 
+
+# Hardware Setup
+
+## Overview
+This repository documents the hardware setup for a power electronics project involving a three-leg inverter circuit controlled by a TMS320F28379D microcontroller. The setup includes gate driver circuits, power supply components, and measurement instruments.
+
+## Hardware Components
+
+### 1. Inverter Circuit
+The inverter circuit consists of three legs, each controlled via dedicated gate driver circuits. The inverter is enclosed in an acrylic case for safety.
+
+### 2. Microcontroller (MCU)
+- **Piccolo LaunchPad TMS320F28379D**
+- Used for controlling the inverter circuit through PWM signals.
+- Connected to a laptop for programming and monitoring.
+
+### 3. Gate Driver Circuits
+- Three separate gate driver circuits, each corresponding to an inverter leg.
+- Ensures proper switching of the inverter’s power transistors.
+
+### 4. Power Supply and Rectifier
+- **Transformer**: Provides AC voltage for rectification.
+- **Bridge Rectifier Circuit**: Converts AC to DC for powering the inverter.
+- **Isolated IGBT Gate Driver Flyback Power Supply**: Supplies isolated power for gate drivers.
+
+### 5. Measurement and Debugging Instruments
+- **Digital Storage Oscilloscope (DSO)**: Used for analyzing inverter waveforms.
+- **Laptop with Code Composer Studio (CCS)**: For programming and debugging the TMS320F28379D.
+
+## Connections & Wiring
+- The gate driver circuits are wired to the corresponding inverter legs.
+- The MCU generates PWM signals for controlling switching events.
+- The rectifier and power supply provide the required voltage levels.
+- Measurement probes from the DSO are connected to key points for real-time waveform observation.
+
+## How to Use
+1. **Power On**: Ensure proper connections and apply power to the system.
+2. **Microcontroller Configuration**: Load the control firmware onto the TMS320F28379D via CCS.
+3. **Oscilloscope Setup**: Connect probes to monitor voltage and current waveforms.
+4. **Testing & Debugging**: Observe inverter output and fine-tune parameters if necessary.
+
+## Notes
+- Always ensure proper insulation and protection when working with high-power circuits.
+- Double-check wiring connections before applying power.
+- Use an isolated power supply for gate drivers to avoid ground loops.
+
+## Future Work
+- Implement advanced control techniques such as SPWM or SVPWM.
+- Integrate real-time data logging for system performance analysis.
+- Optimize hardware design for improved efficiency and reliability.
+
+---
+For any queries, feel free to open an issue or contribute to the repository!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Contributing
 Feel free to contribute to this project by submitting issues or pull requests.
 
