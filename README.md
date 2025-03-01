@@ -27,7 +27,6 @@ SPWM is the most commonly used PWM technique for controlling inverters. It gener
 - When `VcontrolC > Vtri`, `S5` is ON, and `VCN = Vd`.
 - When `VcontrolC < Vtri`, `S6` is ON, and `VCN = 0`.
 
-
 <p align="center">
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/5d0571e88ccee716accb8d8f1b00c4db5c63d833/Photos/SPWM%20Three-Phase%20Inverter%20Waveforms.png" width="500">
 </p>  
@@ -141,51 +140,71 @@ The inverter circuit consists of three legs, each controlled via dedicated gate 
 - The rectifier and power supply provide the required voltage levels.
 - Measurement probes from the DSO are connected to key points for real-time waveform observation.
 
-## How to Use
-1. **Power On**: Ensure proper connections and apply power to the system.
-2. **Microcontroller Configuration**: Load the control firmware onto the TMS320F28379D via CCS.
-3. **Oscilloscope Setup**: Connect probes to monitor voltage and current waveforms.
-4. **Testing & Debugging**: Observe inverter output and fine-tune parameters if necessary.
+# **Three-Phase Line-to-Line Voltage Analysis**
 
-## Notes
-- Always ensure proper insulation and protection when working with high-power circuits.
-- Double-check wiring connections before applying power.
-- Use an isolated power supply for gate drivers to avoid ground loops.
+## **Overview**
+This repository contains oscilloscope waveform analysis of three-phase **line-to-line voltages** measured from an inverter system. The data provides insights into the voltage characteristics and switching behavior of the system.
 
-## Future Work
-- Implement advanced control techniques such as SPWM or SVPWM.
-- Integrate real-time data logging for system performance analysis.
-- Optimize hardware design for improved efficiency and reliability.
+## **Captured Waveforms**
+The following line-to-line voltages are analyzed:
+
+- **R-Y Voltage** (Red Phase to Yellow Phase)
+- **Y-B Voltage** (Yellow Phase to Blue Phase)
+- **B-R Voltage** (Blue Phase to Red Phase)
+
+### **Waveform Observations**
+#### **1. R-Y Voltage (Orange Waveform)**
+- Displays a **stepped structure**, indicating a **PWM-controlled inverter output**.
+- The frequency measurement suggests a periodic switching operation.
+- The presence of switching harmonics suggests the need for filtering.
+
+ <p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/R-Y%20Voltage.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> R-Y Voltage</p>  
+
+
+#### **2. Y-B Voltage (Green Waveform)**
+- Similar stepped waveform with **PWM switching** characteristics.
+- Expected phase shift observed between the line voltages.
+- Some distortions indicate high-frequency switching ripples.
+
+ <p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/Y-B%20Voltage.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> Y-B Voltagee</p>  
+
+
+#### **3. B-R Voltage (Blue Waveform)**
+- Follows a similar pattern to the other two voltages.
+- Complements the other phase voltages to ensure proper **three-phase balance**.
+- Indicates that the system is operating as a **three-phase inverter**.
+
+ <p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/B-R%20Voltage.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> B-R Voltagee</p>  
+
+## **Key Takeaways**
+- The waveforms confirm that the system is a **three-phase inverter** generating AC voltage from a DC source.
+- The **PWM switching artifacts** indicate the need for an **LC or LCL filter** to smoothen the waveform into a pure sine wave.
+- The **line-to-line voltages** exhibit the expected phase relationships, ensuring balanced operation.
+
+## **Next Steps**
+- Implement **LC or LCL filters** to reduce harmonics and obtain sinusoidal output.
+- Optimize **PWM switching techniques** to minimize switching losses and improve waveform quality.
+- Perform **Fourier analysis (FFT)** to evaluate total harmonic distortion (THD).
+- Validate phase relationships using further experimental measurements.
+
+## **References**
+- Power Electronics by Ned Mohan
+- IEEE Papers on **PWM control techniques for three-phase inverters**
 
 ---
-For any queries, feel free to open an issue or contribute to the repository!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Contributing
-Feel free to contribute to this project by submitting issues or pull requests.
-
-## License
-This project is licensed under the MIT License.
-
-## Contact
-For queries, contact [Your Email] or open an issue on GitHub.
-
----
-
-This README provides a clear overview of your project, including technical explanations and implementation details.
+📌 **Author**: [Your Name]  
+📌 **License**: MIT  
+📌 **Contributions**: Open to suggestions and improvements! Feel free to submit PRs or open issues. 🚀
 
