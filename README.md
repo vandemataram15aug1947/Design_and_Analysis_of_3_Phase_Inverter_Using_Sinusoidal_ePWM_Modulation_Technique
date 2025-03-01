@@ -13,7 +13,6 @@ This project focuses on the design and analysis of a three-phase inverter using 
 ## Sinusoidal Pulse Width Modulation (SPWM)
 SPWM is the most commonly used PWM technique for controlling inverters. It generates gating signals by comparing a sinusoidal control signal with a triangular carrier waveform. The frequency of the sinusoidal control signal determines the desired inverter output frequency.
 
-
 <p align="center">
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/3fcad04b6156f3dbe938ac160a95234b6a028c2a/Photos/Three-Phase%20Inverter%20Circuit.png" width="500">
 </p>  
@@ -27,6 +26,13 @@ SPWM is the most commonly used PWM technique for controlling inverters. It gener
 - When `VcontrolB < Vtri`, `S4` is ON, and `VBN = 0`.
 - When `VcontrolC > Vtri`, `S5` is ON, and `VCN = Vd`.
 - When `VcontrolC < Vtri`, `S6` is ON, and `VCN = 0`.
+
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/5d0571e88ccee716accb8d8f1b00c4db5c63d833/Photos/SPWM%20Three-Phase%20Inverter%20Waveforms.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> SPWM Three-Phase Inverter Waveforms</p>  
 
 ### Voltage Equations
 The line-to-line voltages are computed as follows:
