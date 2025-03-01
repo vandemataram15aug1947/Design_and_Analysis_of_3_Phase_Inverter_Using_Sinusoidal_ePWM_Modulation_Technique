@@ -37,8 +37,8 @@ SPWM is the most commonly used PWM technique for controlling inverters. It gener
 ### Voltage Equations
 The line-to-line voltages are computed as follows:
 ```math
-V_{AB} = V_{AN} - V_{BN}
-V_{BC} = V_{BN} - V_{CN}
+V_{AB} = V_{AN} - V_{BN},
+V_{BC} = V_{BN} - V_{CN},
 V_{CA} = V_{CN} - V_{AN}
 ```
 
