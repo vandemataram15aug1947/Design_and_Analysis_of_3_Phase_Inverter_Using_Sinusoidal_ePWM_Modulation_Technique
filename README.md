@@ -1,5 +1,3 @@
-# Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique
-
 
 # Design and Analysis of 3-Phase Inverter Using Sinusoidal ePWM Modulation Technique
 
