@@ -186,7 +186,25 @@ The following line-to-line voltages are analyzed:
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/B-R%20Voltage.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 1:</b> B-R Voltagee</p>  
+<p align="center"><b>Figure 1:</b> B-R Voltagee</p> 
+
+
+#### **3. R-Y Y-B and B-R Voltage**
+
+## Overview
+This project involves analyzing electrical measurements from a system under test to evaluate voltage, current, and frequency characteristics. The collected data provides insights into the behavior and performance of the circuit.
+
+ <p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/28f2e13306f5c16a3defe625c7269231dfe297fc/Photos/R-Y%20Y-B%20AND%20B-R%20Voltage.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> R-Y Y-B and B-R Voltage</p> 
+
+## Key Observations
+- **High-Frequency Signal:** A high-frequency signal (>35 kHz) was detected on Channel 1 and Channel 3.
+- **Low-Frequency Signal:** Channel 2 recorded a frequency of **34.963 Hz**.
+- **Current Analysis:** The peak-to-peak current on Channel 1 was measured at **11.5 A**, indicating significant fluctuations.
+- **Voltage Levels:** Recorded voltage levels were **20.0 V** and **50.0 V**, likely corresponding to different phases or circuit components (e.g., R-Y, Y-B, B-R).
 
 ## **Key Takeaways**
 - The waveforms confirm that the system is a **three-phase inverter** generating AC voltage from a DC source.
