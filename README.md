@@ -94,47 +94,49 @@ P = \sqrt{3} \times 110 \times 3.67 = 700W
 # Hardware Setup
 
 ## Overview
-This repository documents the hardware setup for a power electronics project involving a three-leg inverter circuit controlled by a TMS320F28379D microcontroller. The setup includes gate driver circuits, power supply components, and measurement instruments.
+This repository documents the hardware setup for a **power electronics project** involving a **three-leg inverter circuit** controlled by a **TMS320F28379D** microcontroller. The setup includes **gate driver circuits, power supply components, and measurement instruments** for testing and debugging.
 
 ## Hardware Components
 
 ### 1. Inverter Circuit
-The inverter circuit consists of three legs, each controlled via dedicated gate driver circuits. The inverter is enclosed in an acrylic case for safety.
+- Consists of **three legs**, each controlled via dedicated **gate driver circuits**.
+- Enclosed in an **acrylic case** for safety and protection.
 
 ### 2. Microcontroller (MCU)
-- **Piccolo LaunchPad TMS320F28379D**
-- Used for controlling the inverter circuit through PWM signals.
-- Connected to a laptop for programming and monitoring.
+- **TMS320F28379D Piccolo LaunchPad**.
+- Controls the inverter circuit through **PWM signals**.
+- Connected to a laptop for **programming and real-time monitoring**.
 
 ### 3. Gate Driver Circuits
-- Three separate gate driver circuits, each corresponding to an inverter leg.
-- Ensures proper switching of the inverter’s power transistors.
+- Three **separate gate driver circuits**, each corresponding to an **inverter leg**.
+- Ensures proper switching of the **inverter's power transistors**.
 
 ### 4. Power Supply and Rectifier
 - **Transformer**: Provides AC voltage for rectification.
 - **Bridge Rectifier Circuit**: Converts AC to DC for powering the inverter.
-- **Isolated IGBT Gate Driver Flyback Power Supply**: Supplies isolated power for gate drivers.
+- **Isolated IGBT Gate Driver Flyback Power Supply**: Provides isolated power for gate drivers.
 
 ### 5. Measurement and Debugging Instruments
 - **Digital Storage Oscilloscope (DSO)**: Used for analyzing inverter waveforms.
-- **Laptop with Code Composer Studio (CCS)**: For programming and debugging the TMS320F28379D.
+- **Laptop with Code Composer Studio (CCS)**: For programming and debugging the **TMS320F28379D**.
 
+---
 
-## **Implementation Steps**  
+## Implementation Steps
 
-### **1. Hardware Setup**  
-- **Connect all components** to their appropriate **GPIO pins** and **power supply lines** on the **TMS320F28379D**.  
-- The **potentiometer output** is connected to the **ADC** to provide real-time speed control input.  
-- The **MOSFET trigger module** is connected to the **PWM output** of the microcontroller.  
-- The **relay module**, **LED module**, and **buzzer** are connected to dedicated GPIO pins for additional control functions.  
-- A **current-limiting resistor** is placed in series with the LED to **prevent excessive current draw**.  
+### 1. Hardware Setup
+- Connect all **hardware components** to their appropriate **GPIO pins** and **power supply lines** on the **TMS320F28379D**.
+- The **potentiometer output** is connected to the **ADC** to provide real-time control input.
+- The **MOSFET trigger module** is connected to the **PWM output** of the microcontroller.
+- The **relay module, LED module, and buzzer** are connected to dedicated GPIO pins for additional control functions.
+- A **current-limiting resistor** is placed in series with the **LED** to prevent **excessive current draw**.
 
-### **2. Software Implementation**  
-- The **firmware is written in C/C++** using **Code Composer Studio (CCS)**.  
-- The **PWM duty cycle** is dynamically adjusted based on the **ADC reading from the potentiometer**.  
-- **GPIOs are configured** for controlling the **relay, LED, and buzzer**.  
-- The **PWM signal is generated using the ePWM module** of the **TMS320F28379D**.  
-- The **buzzer and LED module** provide **status indication** during operation.  
+### 2. Software Implementation
+- The **firmware is written in C/C++** using **Code Composer Studio (CCS)**.
+- **GPIOs are configured** for controlling the **relay, LED, and buzzer**.
+- The **PWM signal is generated using the ePWM module** of the **TMS320F28379D**.
+
+---
 
 # **Code Implementation**
 
@@ -489,13 +491,6 @@ void initEPWM3()
     EPWM_setInterruptEventCount(EPWM3_BASE, 1U);
 }
 ```
-
-
-## Connections & Wiring
-- The gate driver circuits are wired to the corresponding inverter legs.
-- The MCU generates PWM signals for controlling switching events.
-- The rectifier and power supply provide the required voltage levels.
-- Measurement probes from the DSO are connected to key points for real-time waveform observation.
 
 # **Three-Phase Line-to-Line Voltage Analysis**
 
