@@ -119,6 +119,176 @@ The inverter circuit consists of three legs, each controlled via dedicated gate 
 - **Digital Storage Oscilloscope (DSO)**: Used for analyzing inverter waveforms.
 - **Laptop with Code Composer Studio (CCS)**: For programming and debugging the TMS320F28379D.
 
+
+## **Implementation Steps**  
+
+### **1. Hardware Setup**  
+- **Connect all components** to their appropriate **GPIO pins** and **power supply lines** on the **TMS320F28379D**.  
+- The **potentiometer output** is connected to the **ADC** to provide real-time speed control input.  
+- The **MOSFET trigger module** is connected to the **PWM output** of the microcontroller.  
+- The **relay module**, **LED module**, and **buzzer** are connected to dedicated GPIO pins for additional control functions.  
+- A **current-limiting resistor** is placed in series with the LED to **prevent excessive current draw**.  
+
+### **2. Software Implementation**  
+- The **firmware is written in C/C++** using **Code Composer Studio (CCS)**.  
+- The **PWM duty cycle** is dynamically adjusted based on the **ADC reading from the potentiometer**.  
+- **GPIOs are configured** for controlling the **relay, LED, and buzzer**.  
+- The **PWM signal is generated using the ePWM module** of the **TMS320F28379D**.  
+- The **buzzer and LED module** provide **status indication** during operation.  
+
+# **Code Implementation**
+
+Below is the main loop implementation for Speed Control of a DC Motor:
+
+```c
+/*
+ * Speed Control of a DC Motor Using ePWM on the TMS320F28379D Microcontroller
+ *
+ * Created on: Dec 5, 2023
+ * Author: Vande
+ */
+
+#include "F2837xD_device.h"
+#include "F28x_Project.h"
+#include "driverlib.h"
+#include "device.h"
+
+/* ----------------------- Macro Definitions ----------------------- */
+#define EX_ADC_RESOLUTION 12  /* ADC Resolution (12-bit) */
+
+/* ----------------------- Function Prototypes ----------------------- */
+void gpio_init(void);
+void PinMux_init(void);
+void initEPWM1(void);
+
+void toggleLED(void);
+void toggleBuzzer(void);
+void toggleRelay(void);
+
+void setLED(bool set);
+void setBuzzer(bool set);
+void setRelay(bool set);
+
+void delayCount(void);
+void ConfigADC(void);
+void initADC_SOC(void);
+
+/* ----------------------- Global Variables ----------------------- */
+uint16_t Adc_Result_1, prev_Adc_Result_1, Adc_Result_2;
+uint16_t delayCounter_ms, delayCounter_s;
+int count;
+
+/* ----------------------- Main Function ----------------------- */
+void main(void) {
+    /* Initialize Device and Peripherals */
+    Device_init();
+    Device_initGPIO();
+    PinMux_init();
+    
+    Interrupt_initModule();
+    Interrupt_initVectorTable();
+    
+    IER = 0x0000;
+    IFR = 0x0000;
+    
+    SysCtl_disablePeripheral(SYSCTL_PERIPH_CLK_TBCLKSYNC);
+    SysCtl_enablePeripheral(SYSCTL_PERIPH_CLK_TBCLKSYNC);
+    
+    ConfigADC();
+    initADC_SOC();
+    
+    /* Initialize Variables */
+    Adc_Result_1 = 0;
+    prev_Adc_Result_1 = 0;
+    delayCounter_ms = 0;
+    delayCounter_s = 0;
+    count = 0;
+    
+    EINT;
+    ERTM;
+    
+    while (1) {
+        /* ADC Conversion and Result Processing */
+        // Force ADC Conversion
+        // Wait for completion
+        // Store ADC result
+        
+        /* Motor Control Logic */
+        // Implement PWM control based on ADC result
+        
+        /* Peripheral Control Logic */
+        // LED, Buzzer, and Relay Control
+        
+        /* Timing and Delay Handling */
+        delayCount();
+    }
+}
+
+/* ----------------------- Function Definitions ----------------------- */
+
+void PinMux_init(void) {
+    /* GPIO Pin Initialization for PWM, LED, Buzzer, and Relay */
+}
+
+void toggleLED(void) {
+    /* Toggle LED State */
+}
+
+void toggleBuzzer(void) {
+    /* Toggle Buzzer State */
+}
+
+void toggleRelay(void) {
+    /* Toggle Relay State */
+}
+
+void setLED(bool set) {
+    /* Set LED State */
+}
+
+void setBuzzer(bool set) {
+    /* Set Buzzer State */
+}
+
+void setRelay(bool set) {
+    /* Set Relay State */
+}
+
+void delayCount(void) {
+    /* Delay Function Implementation */
+}
+
+void initEPWM1(void) {
+    /* PWM Initialization and Configuration */
+    EPwm1Regs.TBPRD = 1250;       /* Set timer period 801 TBCLKs */
+    EPwm1Regs.TBPHS.bit.TBPHS = 0x0000;        /* Phase is 0 */
+    EPwm1Regs.TBCTR = 0x0000;
+
+    /* Set Compare Values */
+    EPwm1Regs.CMPA.bit.CMPA = Adc_Result_1;    /* Set compare A value */
+
+    /* Setup Counter Mode */
+    EPwm1Regs.TBCTL.bit.CTRMODE = TB_COUNT_UPDOWN; /* Count up and down */
+    EPwm1Regs.TBCTL.bit.PHSEN = TB_DISABLE;        /* Disable phase loading */
+    EPwm1Regs.TBCTL.bit.HSPCLKDIV = TB_DIV1;       /* Clock ratio to SYSCLKOUT */
+    EPwm1Regs.TBCTL.bit.CLKDIV = TB_DIV1;
+
+    /* Configure Action Qualifier */
+    EPwm1Regs.AQCTLA.bit.CAU = AQ_SET;     /* Set PWM1A on event A, up count */
+    EPwm1Regs.AQCTLA.bit.CAD = AQ_CLEAR;   /* Clear PWM1A on event A, down count */
+}
+
+void ConfigADC(void) {
+    /* ADC Configuration Structure */
+}
+
+void initADC_SOC(void) {
+    /* ADC Start-of-Conversion Setup */
+}
+
+```
+
+
 ## Connections & Wiring
 - The gate driver circuits are wired to the corresponding inverter legs.
 - The MCU generates PWM signals for controlling switching events.
