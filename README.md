@@ -138,154 +138,356 @@ The inverter circuit consists of three legs, each controlled via dedicated gate 
 
 # **Code Implementation**
 
-Below is the main loop implementation for Speed Control of a DC Motor:
+Below is the main loop implementation for Open Loop Control of Three Phase Inverter:
 
 ```c
 /*
- * Speed Control of a DC Motor Using ePWM on the TMS320F28379D Microcontroller
- *
- * Created on: Dec 5, 2023
+ * Open_Loop_Control_of_Three_Phase_Inverter
+ * Master Source File
+ * Created On: 31-March-2024
  * Author: Vande
  */
 
-#include "F2837xD_device.h"
-#include "F28x_Project.h"
-#include "driverlib.h"
-#include "device.h"
+/*
+ * Included Files
+ */
+#include "driverlib.h"      /* F2837xD driverlib Include File */
+#include "device.h"         /* F2837xD device Include File */
+#include "math.h"           /* F2837xD math Include File */
 
-/* ----------------------- Macro Definitions ----------------------- */
-#define EX_ADC_RESOLUTION 12  /* ADC Resolution (12-bit) */
+/*
+ * Defines that configure the period for each timer
+ * U indicates that the number is an unsigned integer. This means the value is guaranteed to be non-negative.
+ */
+#define EPWM1_TIMER_TBPRD  2500U /* Period register */
+#define EPWM1_CMPA         1250U
+#define EPWM1_CMPB         1250U
 
-/* ----------------------- Function Prototypes ----------------------- */
-void gpio_init(void);
-void PinMux_init(void);
+#define EPWM2_TIMER_TBPRD  2500U /* Period register */
+#define EPWM2_CMPA         1250U
+#define EPWM2_CMPB         1250U
+
+#define EPWM3_TIMER_TBPRD  2500U /* Period register */
+#define EPWM3_CMPA         1250U
+#define EPWM3_CMPB         1250U
+
+/*
+ * DefineS Dead Band
+ */
+#define DEAD_BAND            250U
+
+/*
+ * Function Prototypes
+ */
 void initEPWM1(void);
+void initEPWM2(void);
+void initEPWM3(void);
+__interrupt void epwm1ISR(void);
+__interrupt void epwm2ISR(void);
+__interrupt void epwm3ISR(void);
 
-void toggleLED(void);
-void toggleBuzzer(void);
-void toggleRelay(void);
-
-void setLED(bool set);
-void setBuzzer(bool set);
-void setRelay(bool set);
-
-void delayCount(void);
-void ConfigADC(void);
-void initADC_SOC(void);
-
-/* ----------------------- Global Variables ----------------------- */
-uint16_t Adc_Result_1, prev_Adc_Result_1, Adc_Result_2;
-uint16_t delayCounter_ms, delayCounter_s;
-int count;
-
-/* ----------------------- Main Function ----------------------- */
-void main(void) {
-    /* Initialize Device and Peripherals */
+/*
+ * Main Loop
+ */
+void main(void)
+{
+    /*
+     * Initialize device clock and peripherals
+     */
     Device_init();
+
+    /*
+     * Disable pin locks and enable internal pull ups.
+     */
     Device_initGPIO();
-    PinMux_init();
-    
+
+    /*
+     * Initialize PIE and clear PIE registers. Disables CPU interrupts.
+     */
     Interrupt_initModule();
+
+    /*
+     * Initialize the PIE vector table with pointers to the shell Interrupt Service Routines (ISR).
+     */
     Interrupt_initVectorTable();
-    
-    IER = 0x0000;
-    IFR = 0x0000;
-    
+
+    /*
+     * Assign the interrupt service routines to ePWM interrupts
+     */
+    Interrupt_register(INT_EPWM1, &epwm1ISR);
+    Interrupt_register(INT_EPWM2, &epwm2ISR);
+    Interrupt_register(INT_EPWM3, &epwm3ISR);
+
+    /*
+     * Configure GPIO0/1 , GPIO2/3 and GPIO4/5 as ePWM1A/1B, ePWM2A/2B and ePWM3A/3B pins respectively
+     * PinMux for eEPWM1A & eEPWM1B
+     */
+
+    /*
+     * PinMux for eEPWM2A & eEPWM2B
+     */
+
+    /*
+     * PinMux for eEPWM3A & eEPWM3B
+     */
+
+    /*
+     * PinMux for GPIO Output
+     */
+    GPIO_setPadConfig(35, GPIO_PIN_TYPE_PULLUP);
+    GPIO_writePin(35, 1);
+    GPIO_setPinConfig(GPIO_35_GPIO35);
+    GPIO_setDirectionMode(35, GPIO_DIR_MODE_OUT);
+
+    /*
+     * Disable sync(Freeze clock to PWM as well)
+     */
     SysCtl_disablePeripheral(SYSCTL_PERIPH_CLK_TBCLKSYNC);
-    SysCtl_enablePeripheral(SYSCTL_PERIPH_CLK_TBCLKSYNC);
-    
-    ConfigADC();
-    initADC_SOC();
-    
-    /* Initialize Variables */
-    Adc_Result_1 = 0;
-    prev_Adc_Result_1 = 0;
-    delayCounter_ms = 0;
-    delayCounter_s = 0;
-    count = 0;
-    
-    EINT;
-    ERTM;
-    
-    while (1) {
-        /* ADC Conversion and Result Processing */
-        // Force ADC Conversion
-        // Wait for completion
-        // Store ADC result
-        
-        /* Motor Control Logic */
-        // Implement PWM control based on ADC result
-        
-        /* Peripheral Control Logic */
-        // LED, Buzzer, and Relay Control
-        
-        /* Timing and Delay Handling */
-        delayCount();
+
+    /*
+     * Initialize ePWM modules
+     */
+    initEPWM1();
+    initEPWM2();
+    initEPWM3();
+
+    /*
+     * Enable ePWM interrupts
+     */
+    Interrupt_enable(INT_EPWM1);
+    Interrupt_enable(INT_EPWM2);
+    Interrupt_enable(INT_EPWM3);
+
+    /*
+     * Enable Global Interrupt (INTM) and real-time interrupt (DBGM)
+     */
+    EINT; /* Enable Global interrupt INTM */
+    ERTM; /* Enable Global real-time interrupt DBGM */
+
+    /*
+     * IDLE loop. Just sit and loop forever (optional):
+     */
+    for(;;)
+    {
+        NOP;
     }
 }
 
-/* ----------------------- Function Definitions ----------------------- */
+/*
+ * epwm1ISR-ePWM1 ISR
+ */
+__interrupt void epwm1ISR(void)
+{
+    /*
+     * Toggle GPIO pin
+     */
+    GPIO_togglePin(35);
 
-void PinMux_init(void) {
-    /* GPIO Pin Initialization for PWM, LED, Buzzer, and Relay */
+    /*
+     * Update the CMPA and CMPB values
+     */
+
+    /*
+     * Clear INT flag for this timer
+     */
+    EPWM_clearEventTriggerInterruptFlag(EPWM1_BASE);
+
+    /*
+     * Acknowledge interrupt group
+     */
+    Interrupt_clearACKGroup(INTERRUPT_ACK_GROUP3);
 }
 
-void toggleLED(void) {
-    /* Toggle LED State */
+/*
+ * epwm2ISR-ePWM2 ISR
+ */
+__interrupt void epwm2ISR(void)
+{
+    /*
+     * Update the CMPA and CMPB values
+     */
+
+    /*
+     * Clear INT flag for this timer
+     */
+    EPWM_clearEventTriggerInterruptFlag(EPWM2_BASE);
+
+    /*
+     * Acknowledge interrupt group
+     */
+    Interrupt_clearACKGroup(INTERRUPT_ACK_GROUP3);
 }
 
-void toggleBuzzer(void) {
-    /* Toggle Buzzer State */
+/*
+ * epwm3ISR - ePWM 3 ISR
+ */
+__interrupt void epwm3ISR(void)
+{
+    /*
+     * Update the CMPA and CMPB values
+     */
+
+    /*
+     * Clear INT flag for this timer
+     */
+    EPWM_clearEventTriggerInterruptFlag(EPWM3_BASE);
+
+    /*
+     * Acknowledge interrupt group
+     */
+    Interrupt_clearACKGroup(INTERRUPT_ACK_GROUP3);
 }
 
-void toggleRelay(void) {
-    /* Toggle Relay State */
+/*
+ * Initialize initEPWM1-Configure ePWM1
+ */
+void initEPWM1()
+{
+    /*
+     * Set-Up TBCLK
+     */
+    EPWM_setTimeBasePeriod(EPWM1_BASE, EPWM1_TIMER_TBPRD);
+    EPWM_setPhaseShift(EPWM1_BASE, 0U);
+    EPWM_setTimeBaseCounter(EPWM1_BASE, 0U);
+
+    /*
+     * Set Compare Values
+     */
+
+    /*
+     * Set-Up Counter Mode
+     */
+    EPWM_setTimeBaseCounterMode(EPWM1_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+    EPWM_disablePhaseShiftLoad(EPWM1_BASE);
+
+    /*
+     * Set-Up ePWM1 clock pre-scaler
+     */
+    EPWM_setClockPrescaler(EPWM1_BASE,
+                           EPWM_CLOCK_DIVIDER_1,
+                           EPWM_HSCLOCK_DIVIDER_1);
+
+    /*
+     * Set-Up Shadowing or Set-Up shadow register load on ZERO
+     */
+
+    /*
+     * Set Action Qualifier for ePWM1A & ePWM1B
+     * Clear ePWM1A on event A, UP count
+     */
+
+    /*
+     * Clear ePWM1A on event A, DOWN count
+     */
+
+    /*
+     * Clear ePWM1B on event B, UP count
+     */
+
+    /*
+     * Clear ePWM1B on event B, DOWN count
+     */
+
+    /*
+     * Interrupt where we will change the Compare Values Select INT on Time base counter zero event,
+     * Enable INT, generate INT on 3rd event
+     */
+    EPWM_setInterruptSource(EPWM1_BASE, EPWM_INT_TBCTR_ZERO);
+    EPWM_enableInterrupt(EPWM1_BASE);
+    EPWM_setInterruptEventCount(EPWM1_BASE, 1U);
 }
 
-void setLED(bool set) {
-    /* Set LED State */
+/*
+ * Initialize initEPWM2 - Configure ePWM2
+ */
+void initEPWM2()
+{
+    /*
+     * Set-Up TBCLK
+     */
+    EPWM_setTimeBasePeriod(EPWM2_BASE, EPWM2_TIMER_TBPRD);
+    EPWM_setPhaseShift(EPWM2_BASE, 0U);
+    EPWM_setTimeBaseCounter(EPWM2_BASE, 0U);
+
+    /*
+     * Set Compare Values
+     */
+
+    /*
+     * Set-Up Counter Mode
+     */
+    EPWM_setTimeBaseCounterMode(EPWM2_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+    EPWM_disablePhaseShiftLoad(EPWM2_BASE);
+
+    /*
+     * Set-Up ePWM2 clock pre-scaler
+     */
+    EPWM_setClockPrescaler(EPWM2_BASE,
+                           EPWM_CLOCK_DIVIDER_1,
+                           EPWM_HSCLOCK_DIVIDER_1);
+
+    /*
+     * Set-Up Shadowing or Set-Up shadow register load on ZERO
+     */
+
+    /*
+     * Set Action Qualifier for ePWM2A & ePWM2B
+     */
+
+    /*
+     * Interrupt where we will change the Compare Values Select INT on Time base counter zero event,
+     * Enable INT, generate INT on 3rd event
+     */
+    EPWM_setInterruptSource(EPWM2_BASE, EPWM_INT_TBCTR_ZERO);
+    EPWM_enableInterrupt(EPWM2_BASE);
+    EPWM_setInterruptEventCount(EPWM2_BASE, 1U);
 }
 
-void setBuzzer(bool set) {
-    /* Set Buzzer State */
+/*
+ * Initialize initEPWM3 - Configure ePWM3
+ */
+void initEPWM3()
+{
+    /*
+     * Set-Up TBCLK
+     */
+    EPWM_setTimeBasePeriod(EPWM3_BASE, EPWM3_TIMER_TBPRD);
+    EPWM_setPhaseShift(EPWM3_BASE, 0U);
+    EPWM_setTimeBaseCounter(EPWM3_BASE, 0U);
+
+    /*
+     * Set Compare Values
+     */
+
+    /*
+     * Set-Up Counter Mode
+     */
+    EPWM_setTimeBaseCounterMode(EPWM3_BASE, EPWM_COUNTER_MODE_UP_DOWN);
+    EPWM_disablePhaseShiftLoad(EPWM3_BASE);
+
+    /*
+     * Set-Up ePWM3 clock pre-scaler
+     */
+    EPWM_setClockPrescaler(EPWM3_BASE,
+                           EPWM_CLOCK_DIVIDER_1,
+                           EPWM_HSCLOCK_DIVIDER_1);
+
+    /*
+     * Set-Up Shadowing or Set-Up shadow register load on ZERO
+     */
+
+    /*
+     * Set Action Qualifier for ePWM3A & ePWM3B
+     */
+
+    /*
+     * Interrupt where we will change the Compare Values Select INT on Time base counter zero event,
+     * Enable INT, generate INT on 3rd event
+     */
+    EPWM_setInterruptSource(EPWM3_BASE, EPWM_INT_TBCTR_ZERO);
+    EPWM_enableInterrupt(EPWM3_BASE);
+    EPWM_setInterruptEventCount(EPWM3_BASE, 1U);
 }
-
-void setRelay(bool set) {
-    /* Set Relay State */
-}
-
-void delayCount(void) {
-    /* Delay Function Implementation */
-}
-
-void initEPWM1(void) {
-    /* PWM Initialization and Configuration */
-    EPwm1Regs.TBPRD = 1250;       /* Set timer period 801 TBCLKs */
-    EPwm1Regs.TBPHS.bit.TBPHS = 0x0000;        /* Phase is 0 */
-    EPwm1Regs.TBCTR = 0x0000;
-
-    /* Set Compare Values */
-    EPwm1Regs.CMPA.bit.CMPA = Adc_Result_1;    /* Set compare A value */
-
-    /* Setup Counter Mode */
-    EPwm1Regs.TBCTL.bit.CTRMODE = TB_COUNT_UPDOWN; /* Count up and down */
-    EPwm1Regs.TBCTL.bit.PHSEN = TB_DISABLE;        /* Disable phase loading */
-    EPwm1Regs.TBCTL.bit.HSPCLKDIV = TB_DIV1;       /* Clock ratio to SYSCLKOUT */
-    EPwm1Regs.TBCTL.bit.CLKDIV = TB_DIV1;
-
-    /* Configure Action Qualifier */
-    EPwm1Regs.AQCTLA.bit.CAU = AQ_SET;     /* Set PWM1A on event A, up count */
-    EPwm1Regs.AQCTLA.bit.CAD = AQ_CLEAR;   /* Clear PWM1A on event A, down count */
-}
-
-void ConfigADC(void) {
-    /* ADC Configuration Structure */
-}
-
-void initADC_SOC(void) {
-    /* ADC Start-of-Conversion Setup */
-}
-
 ```
 
 
