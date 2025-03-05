@@ -90,21 +90,6 @@ P = \sqrt{3} \times 110 \times 3.67 = 700W
 | 6       | PWM Switching Frequency    | 10kHz                   |
 | 7       | Nominal Power Rating       | 700W                    |
 
-## Repository Contents
-- **Documentation:** Contains the detailed analysis of the inverter design and SPWM technique.
-- **Code:** Implementation of SPWM using TMS320F28379D.
-- **Simulations:** MATLAB/Simulink and hardware implementation details.
-- **Results:** Experimental waveforms and validation.
-
-## Getting Started
-1. Clone this repository:
-   ```sh
-   git clone https://github.com/yourusername/3phase-inverter-SPWM.git
-   ```
-2. Install the necessary dependencies.
-3. Compile and run the code in Code Composer Studio (CCS).
-4. Verify SPWM signals and inverter output.
-
 
 # Hardware Setup
 
