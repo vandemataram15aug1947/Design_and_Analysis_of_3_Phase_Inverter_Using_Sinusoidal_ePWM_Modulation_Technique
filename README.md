@@ -122,22 +122,6 @@ This repository documents the hardware setup for a **power electronics project**
 
 ---
 
-## Implementation Steps
-
-### 1. Hardware Setup
-- Connect all **hardware components** to their appropriate **GPIO pins** and **power supply lines** on the **TMS320F28379D**.
-- The **potentiometer output** is connected to the **ADC** to provide real-time control input.
-- The **MOSFET trigger module** is connected to the **PWM output** of the microcontroller.
-- The **relay module, LED module, and buzzer** are connected to dedicated GPIO pins for additional control functions.
-- A **current-limiting resistor** is placed in series with the **LED** to prevent **excessive current draw**.
-
-### 2. Software Implementation
-- The **firmware is written in C/C++** using **Code Composer Studio (CCS)**.
-- **GPIOs are configured** for controlling the **relay, LED, and buzzer**.
-- The **PWM signal is generated using the ePWM module** of the **TMS320F28379D**.
-
----
-
 # **Code Implementation**
 
 Below is the main loop implementation for Open Loop Control of Three Phase Inverter:
