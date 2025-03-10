@@ -192,6 +192,8 @@ These factors collectively contribute to the reliability and efficiency of the p
 
 
 
+
+
 <p align="center">
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/e89598c1443b717d6fc9d60228a423332226a8ec/Harware%20Results/Top-Layer%20Traces%20and%20Copper%20of%20Isolated%20IGBT%20Gate-Drive%20Fly-Buck%20Power%20Supply.png.png" width="500">
 </p>  
