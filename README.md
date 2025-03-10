@@ -148,13 +148,31 @@ When negative gate drive is not used, $V_{EE}$ is set to zero volts.
 Designers must pay close attention to PCB layout to achieve optimum performance for the HCPL-3120. The position of low-ESR and low-ESL capacitors near the device is crucial for noise suppression and peak current support. Minimizing loop inductance by limiting the physical area involved in high peak current transitions at transistor gates is essential. Avoiding PCB traces or copper below the driver device preserves high-voltage isolation. Additionally, implementing a PCB layout conducive to heat dissipation, prioritizing increased copper connections to VCC and VEE pins, and employing multiple vias for thermal conductivity while ensuring no overlap between traces or copper from different high-voltage planes enhances performance.
 
 ### Top-Layer Traces and Copper of HCPL-3120
-![Top-Layer Traces and Copper of HCPL-3120](Top-Layer Traces and Copper of HCPL-3120.png)
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/b8c9a2c337a0522620d9f58ec537891241bb0735/Harware%20Results/Top-Layer%20Traces%20and%20Copper%20of%20HCPL-3120.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> Top-Layer Traces and Copper of HCPL-3120</p>  
+
 
 ### Bottom-Layer Traces and Copper of HCPL-3120
-![Bottom-Layer Traces and Copper of HCPL-3120](Bottom-Layer Traces and Copper of HCPL-3120.png)
+
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/b8c9a2c337a0522620d9f58ec537891241bb0735/Harware%20Results/Bottom-Layer%20Traces%20and%20Copper%20of%20HCPL-3120.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> Bottom-Layer Traces and Copper of HCPL-3120</p>  
 
 ### 3D PCB View of HCPL-3120
-![3D PCB View of HCPL-3120](3-D PCB View of HCPL-3120.png)
+
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/b8c9a2c337a0522620d9f58ec537891241bb0735/Harware%20Results/3-D%20PCB%20View%20of%20HCPL-3120.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> 3-D PCB View of HCPL-3120</p>  
 
 ## PCB Material
 Use a standard FR-4 UL94V-0 printed circuit board. This PCB is preferred over cheaper alternatives due to its lower dielectric losses at high frequencies, reduced moisture absorption, greater strength and stiffness, and self-extinguishing flammability characteristics.
