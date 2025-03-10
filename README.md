@@ -228,18 +228,60 @@ Overall, this design effectively addresses the stringent requirements of motor c
 
 
 
+# **Sinusoidal Gate Driver Pulses - Oscilloscope Waveforms**
+
+This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse Width Modulation (SPWM) pulses** generated at the **gate driver output** of a grid-connected inverter. These pulses are essential for proper inverter operation, ensuring efficient power conversion and synchronization with the grid.
+
+---
+
+## **Waveform Analysis**
+
+### **1. Sinusoidal Pulses of First Leg**
+- **Channel 1 (Orange):** High-side gate driver output.
+- **Channel 2 (Green):** Low-side gate driver output.
+- **Switching Frequency:** ~10 kHz.
+- **Peak-to-Peak Voltage:** ~17.3V (Low-Side) and ~18.1V (High-Side).
+- **Observation:** The pulses exhibit a sinusoidal pattern with varying pulse widths, characteristic of **SPWM**.
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20first%20Leg.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> Complementary Pulse of First Leg</p>  
+
+---
+
+### **2. Sinusoidal Pulses of Second Leg**
+- **Channel 1 (Orange):** High-side gate driver output.
+- **Channel 2 (Green):** Low-side gate driver output.
+- **Switching Frequency:** ~10 kHz.
+- **Peak-to-Peak Voltage:** ~16.9V (Low-Side) and ~19.9V (High-Side).
+- **Observation:** The modulated pulse width varies sinusoidally, ensuring smooth operation and **low harmonic distortion**.
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20Second%20Leg.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> Complementary Pulse of Second Leg</p>  
 
 
+---
+
+### **3. Sinusoidal Pulses of Third Leg**
+- **Channel 1 (Orange):** High-side gate driver output.
+- **Channel 2 (Green):** Low-side gate driver output.
+- **Switching Frequency:** ~10 kHz.
+- **Peak-to-Peak Voltage:** ~17.3V (Both High-Side and Low-Side).
+- **Observation:** The pulses maintain the expected phase relationship, ensuring proper **inverter operation**.
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20Third%20Leg.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> Complementary Pulse of Third Leg</p>  
 
 
-
-
-
-
-
-
-
-
+---
 
 
 
