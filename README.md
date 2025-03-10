@@ -116,34 +116,6 @@ A three-phase inverter requires six isolated gate drivers for IGBT switch contro
 - Mount HCPL-3120 directly above the IGBT on a small PCB.
 - Avoid routing IGBT collector/emitter traces close to the HCPL-3120 input to prevent signal coupling. If unavoidable, reverse-bias the LED in the off state to prevent unwanted activation from transient signals.
 
-### Selecting the Gate Resistor ($R_g$) to Minimize IGBT Switching Losses:
-The IGBT and $R_g$ can be analyzed as a simple RC circuit with a voltage supplied by the HCPL-3120. The minimum gate resistor can be calculated as follows:
-
-\[ R_g \geq \frac{V_{CC} - V_{EE} - V_{OL}}{IOL_{\text{PEAK}}} \]
-
-Substituting the values:
-
-\[ R_g = \frac{15V + 5V - 2V}{2.5A} = 7.2 \Omega \approx 8 \Omega \]
-
-When negative gate drive is not used, $V_{EE}$ is set to zero volts.
-
-### Design Considerations:
-- IGBTs require a higher gate voltage swing than Si MOSFETs (+20V to -2V / -5V).
-- Negative gate voltage should not go below -5V.
-- Negative driving voltage is not mandatory but is recommended when drain current exceeds 50A.
-- External gate resistance should be selected appropriately to minimize or eliminate ringing in the gate drive circuit.
-- The gate driver must be located as close as possible to the gate to minimize parasitic effects.
-- A 10kΩ resistor between gate and source is recommended to prevent excessive floating of the gate during propagation delay.
-
-## Functional Diagram
-![Functional Diagram of HCPL-3120](Functional_Diagram.png)
-
-## Typical Application Circuit
-![HCPL-3120 Typical Application Circuit](HCPL-3120_Application_Circuit.png)
-
-
-# Isolated Gate Driver Circuit
-
 ## PCB Layout of HCPL-3120
 Designers must pay close attention to PCB layout to achieve optimum performance for the HCPL-3120. The position of low-ESR and low-ESL capacitors near the device is crucial for noise suppression and peak current support. Minimizing loop inductance by limiting the physical area involved in high peak current transitions at transistor gates is essential. Avoiding PCB traces or copper below the driver device preserves high-voltage isolation. Additionally, implementing a PCB layout conducive to heat dissipation, prioritizing increased copper connections to VCC and VEE pins, and employing multiple vias for thermal conductivity while ensuring no overlap between traces or copper from different high-voltage planes enhances performance.
 
@@ -212,9 +184,6 @@ These factors collectively contribute to the reliability and efficiency of the p
 
 <p align="center"><b>Figure 1:</b> 3-D PCB View of Isolated IGBT Gate-Drive Fly-Buck Power Supply</p>  
 
-
-## Conclusion
-
 The design featuring the **HCPL-3120 optocoupler** provides a robust solution for driving Insulated-Gate Bipolar Transistors (IGBTs) in motor control inverter applications. Key features include:
 
 - **Power Supply Rails:** Utilization of +15 V and -8 V secondary side power.
@@ -226,11 +195,9 @@ The design featuring the **HCPL-3120 optocoupler** provides a robust solution fo
 
 Overall, this design effectively addresses the stringent requirements of motor control inverter systems, enhancing efficiency and performance.
 
-
-
 # **Sinusoidal Gate Driver Pulses - Oscilloscope Waveforms**
 
-This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse Width Modulation (SPWM) pulses** generated at the **gate driver output** of a grid-connected inverter. These pulses are essential for proper inverter operation, ensuring efficient power conversion and synchronization with the grid.
+This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse Width Modulation (SPWM) pulses** generated at the **gate driver output** of a grid-connected inverter. These pulses are essential for proper inverter operation, ensing efficient power conversion and synchronization with the grid.
 
 ---
 
