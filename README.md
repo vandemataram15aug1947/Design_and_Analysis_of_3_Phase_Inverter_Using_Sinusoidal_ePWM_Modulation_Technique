@@ -5,10 +5,10 @@
 This project focuses on the design and analysis of a three-phase inverter using the Sinusoidal Pulse Width Modulation (SPWM) technique. The inverter plays a crucial role in converting DC power into three-phase AC power and is widely used in motor drives, renewable energy applications, and uninterruptible power supplies (UPS).
 
 <p align="center">
-  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/829a5234077cdaf1ea7eb9cbc2068bc538f7fa20/Photos/Sine%20Compare%20with%20Triangular%20Wave.png" width="500">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/f1168b190ff3ca423b499d784347bdb3500c5ab5/Harware%20Results/Top-Layer%20Traces%20and%20Copper%20of%20Isolated%20IGBT%20Gate-Drive%20Fly-Buck%20Power%20Supply.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 1:</b> Sine Compare with Triangular Wave</p>  
+<p align="center"><b>Figure 1:</b> Top-Layer Traces and Copper of Isolated IGBT Gate-Drive Fly-Buck Power Supply</p>  
 
 ## Sinusoidal Pulse Width Modulation (SPWM)
 SPWM is the most commonly used PWM technique for controlling inverters. It generates gating signals by comparing a sinusoidal control signal with a triangular carrier waveform. The frequency of the sinusoidal control signal determines the desired inverter output frequency.
