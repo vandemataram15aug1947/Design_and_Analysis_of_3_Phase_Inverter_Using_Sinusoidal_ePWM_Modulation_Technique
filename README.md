@@ -327,9 +327,6 @@ Below is the main loop implementation for Open Loop Control of Three Phase Inver
 void initEPWM1(void);
 void initEPWM2(void);
 void initEPWM3(void);
-__interrupt void epwm1ISR(void);
-__interrupt void epwm2ISR(void);
-__interrupt void epwm3ISR(void);
 
 /*
  * Main Loop
@@ -359,9 +356,6 @@ void main(void)
     /*
      * Assign the interrupt service routines to ePWM interrupts
      */
-    Interrupt_register(INT_EPWM1, &epwm1ISR);
-    Interrupt_register(INT_EPWM2, &epwm2ISR);
-    Interrupt_register(INT_EPWM3, &epwm3ISR);
 
     /*
      * Configure GPIO0/1 , GPIO2/3 and GPIO4/5 as ePWM1A/1B, ePWM2A/2B and ePWM3A/3B pins respectively
@@ -491,9 +485,6 @@ void initEPWM1()
     /*
      * Set-Up TBCLK
      */
-    EPWM_setTimeBasePeriod(EPWM1_BASE, EPWM1_TIMER_TBPRD);
-    EPWM_setPhaseShift(EPWM1_BASE, 0U);
-    EPWM_setTimeBaseCounter(EPWM1_BASE, 0U);
 
     /*
      * Set Compare Values
@@ -550,9 +541,6 @@ void initEPWM2()
     /*
      * Set-Up TBCLK
      */
-    EPWM_setTimeBasePeriod(EPWM2_BASE, EPWM2_TIMER_TBPRD);
-    EPWM_setPhaseShift(EPWM2_BASE, 0U);
-    EPWM_setTimeBaseCounter(EPWM2_BASE, 0U);
 
     /*
      * Set Compare Values
@@ -596,9 +584,6 @@ void initEPWM3()
     /*
      * Set-Up TBCLK
      */
-    EPWM_setTimeBasePeriod(EPWM3_BASE, EPWM3_TIMER_TBPRD);
-    EPWM_setPhaseShift(EPWM3_BASE, 0U);
-    EPWM_setTimeBaseCounter(EPWM3_BASE, 0U);
 
     /*
      * Set Compare Values
@@ -637,7 +622,6 @@ void initEPWM3()
 
 # **Three-Phase Line-to-Line Voltage Analysis**
 
-## **Overview**
 This document presents an analysis of three-phase **line-to-line voltage waveforms** measured from an inverter system. The study focuses on key waveform characteristics, including frequency, peak-to-peak (Pk-Pk) values, and switching behavior. The insights gained help in evaluating the performance and quality of the inverter output.
 
 ## **Captured Waveforms**
@@ -648,7 +632,6 @@ The following line-to-line voltages are analyzed:
 - **Y-B Voltage** (Yellow Phase to Blue Phase)
 
 ## **Waveform Observations**
-
 
 ### **1. R-Y Voltage**
 - Displays a **stepped structure**, indicating a **PWM-controlled inverter output**.
@@ -695,10 +678,9 @@ The following line-to-line voltages are analyzed:
 - Further analyze noise in Y-B voltage and implement mitigation strategies.
 
 ---
-_This document serves as a reference for waveform analysis in power electronics applications._
+
 #### **18. R-Y Y-B and B-R Voltage**
 
-## Overview
 This project involves analyzing electrical measurements from a system under test to evaluate voltage, current, and frequency characteristics. The collected data provides insights into the behavior and performance of the circuit.
 
  <p align="center">
