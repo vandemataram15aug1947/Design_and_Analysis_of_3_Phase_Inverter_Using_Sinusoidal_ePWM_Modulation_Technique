@@ -635,6 +635,50 @@ void initEPWM3()
 }
 ```
 
+# Waveform Analysis
+
+## Overview
+This document presents an analysis of three waveforms measured in a power electronics system. Each waveform corresponds to a different phase-to-phase voltage or current measurement, highlighting key parameters such as frequency and peak-to-peak (Pk-Pk) values.
+
+## Observations
+
+### 1. **B-R Voltage (First Image)**
+- The waveform contains a high-frequency component with a fundamental switching frequency.
+- The measurement section does not display a detected frequency for Channel 3.
+- The Peak-to-Peak (Pk-Pk) value is not shown.
+- The estimated frequency of the signal is **10.1 kHz**.
+
+### 2. **R-Y Voltage (Second Image)**
+- The waveform has a structured periodic pattern with a fundamental switching frequency.
+- The Peak-to-Peak (Pk-Pk) value is **10.0A**, indicating this is a current waveform.
+- The frequency of the signal is **10.1 kHz**, suggesting a switching event.
+
+### 3. **Y-B Voltage (Third Image)**
+- The waveform exhibits a higher degree of noise compared to the previous signals.
+- The Peak-to-Peak (Pk-Pk) value is not displayed.
+- The signal frequency is **42.338 Hz**, which is close to the fundamental grid frequency.
+
+## Summary of Peak-to-Peak Values
+| Waveform  | Peak-to-Peak Value |
+|-----------|-------------------|
+| **B-R Voltage (First Image)** | Not displayed |
+| **R-Y Voltage (Second Image)** | 10.0A |
+| **Y-B Voltage (Third Image)** | Not displayed |
+
+## Conclusion
+- The fundamental switching frequency is around **10.1 kHz** for B-R and R-Y voltages.
+- The Y-B voltage waveform aligns with the fundamental grid frequency (~42.338 Hz).
+- The noise levels vary across different measurements, with Y-B voltage being the most affected.
+
+## Future Improvements
+- Ensure frequency detection is properly configured for all channels.
+- Enable peak-to-peak measurements for missing values.
+- Further analyze noise in Y-B voltage and mitigate if necessary.
+
+---
+_This document serves as a reference for waveform analysis in power electronics applications._
+
+
 # **Three-Phase Line-to-Line Voltage Analysis**
 
 ## **Overview**
