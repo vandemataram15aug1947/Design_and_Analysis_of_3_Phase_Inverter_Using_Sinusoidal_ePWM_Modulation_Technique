@@ -204,7 +204,7 @@ This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse
 - **Observation:** The pulses exhibit a sinusoidal pattern with varying pulse widths, characteristic of **SPWM**.
 
 <p align="center">
-  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20first%20Leg.png" width="500">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/caa95a6e15a9e61679de4978e6f9ee936a26b863/Harware%20Results/Complementary%20Pulse%20of%20First%20Leg.png" width="500">
 </p>  
 
 <p align="center"><b>Figure 10:</b> Complementary Pulse of First Leg</p>  
