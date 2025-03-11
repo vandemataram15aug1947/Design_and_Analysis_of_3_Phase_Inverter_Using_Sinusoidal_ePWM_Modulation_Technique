@@ -644,7 +644,7 @@ The following line-to-line voltages are analyzed:
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/R-Y%20Voltage.png" width="500">
 </p>
 
-<p align="center"><b>Figure 2:</b> R-Y Voltage</p>
+<p align="center"><b>Figure 15:</b> R-Y Voltage</p>
 
 ### **2. Y-B Voltage**
 - The waveform exhibits a higher degree of noise compared to the previous signals.
@@ -658,7 +658,7 @@ The following line-to-line voltages are analyzed:
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/Y-B%20Voltage.png" width="500">
 </p>
 
-<p align="center"><b>Figure 3:</b> Y-B Voltage</p>
+<p align="center"><b>Figure 16:</b> Y-B Voltage</p>
 
 ### **3. B-R Voltage**
 - The waveform exhibits a high-frequency component with a fundamental switching frequency.
@@ -670,7 +670,7 @@ The following line-to-line voltages are analyzed:
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/B-R%20Voltage.png" width="500">
 </p>
 
-<p align="center"><b>Figure 1:</b> B-R Voltage</p>
+<p align="center"><b>Figure 17:</b> B-R Voltage</p>
 
 ## **Future Improvements**
 - Ensure frequency detection is properly configured for all channels.
