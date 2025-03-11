@@ -734,7 +734,7 @@ The following line-to-line voltages are analyzed:
 This project involves analyzing electrical measurements from a system under test to evaluate voltage, current, and frequency characteristics. The collected data provides insights into the behavior and performance of the circuit.
 
  <p align="center">
-  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/28f2e13306f5c16a3defe625c7269231dfe297fc/Photos/R-Y%20Y-B%20AND%20B-R%20Voltage.png" width="500">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/242a99f0ca10239429fa98871fd4797d9a27eba6/Harware%20Results/R-Y%20Y-B%20and%20B-R%20Voltage.png" width="500">
 </p>  
 
 <p align="center"><b>Figure 18:</b> R-Y Y-B and B-R Voltage</p> 
