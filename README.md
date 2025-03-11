@@ -263,10 +263,10 @@ This image provides a complete view of the **grid-connected PV inverter system**
 - **DSO (Digital Storage Oscilloscope)**: Used for waveform monitoring and debugging switching signals.
 
 <p align="center">
-  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20Third%20Leg.png" width="500">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/7734b1baa1d24e3ac16bfd42fc6c65712ce04393/Harware%20Results/Figure%20Hardware%20Setup%20I.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 1:</b> Complementary Pulse of Third Leg</p>  
+<p align="center"><b>Figure 1:</b> Figure Hardware Setup I</p>  
 
 
 ---
@@ -281,21 +281,13 @@ This image provides a closer look at the **gate driver and power circuits** of t
 - **Inverter Power Circuit**: The main inverter switching stage where power conversion occurs.
 
 <p align="center">
-  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20Third%20Leg.png" width="500">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/7734b1baa1d24e3ac16bfd42fc6c65712ce04393/Harware%20Results/Figure%20Hardware%20Setup%20II.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 1:</b> Complementary Pulse of Third Leg</p>  
+<p align="center"><b>Figure 1:</b> Figure Hardware Setup II</p>  
 
 
 ---
-
-For any questions or contributions, please feel free to open an **issue** or submit a **pull request**!
-
-📧 Contact: your.email@example.com
-
-
-
-# Hardware Setup
 
 ## Overview
 This repository documents the hardware setup for a **power electronics project** involving a **three-leg inverter circuit** controlled by a **TMS320F28379D** microcontroller. The setup includes **gate driver circuits, power supply components, and measurement instruments** for testing and debugging.
