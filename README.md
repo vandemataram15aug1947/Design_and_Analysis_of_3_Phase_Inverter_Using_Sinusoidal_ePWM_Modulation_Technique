@@ -5,10 +5,10 @@
 This project focuses on the design and analysis of a three-phase inverter using the Sinusoidal Pulse Width Modulation (SPWM) technique. The inverter plays a crucial role in converting DC power into three-phase AC power and is widely used in motor drives, renewable energy applications, and uninterruptible power supplies (UPS).
 
 <p align="center">
-  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/f1168b190ff3ca423b499d784347bdb3500c5ab5/Harware%20Results/Top-Layer%20Traces%20and%20Copper%20of%20Isolated%20IGBT%20Gate-Drive%20Fly-Buck%20Power%20Supply.png" width="500">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/1828af132295c7d81358624042e5dfd2d54ef2fe/Basic%20Photos/Sine%20Compare%20with%20Triangular%20Wave.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 1:</b> Top-Layer Traces and Copper of Isolated IGBT Gate-Drive Fly-Buck Power Supply</p>  
+<p align="center"><b>Figure 1:</b> Sine Compare with Triangular Wave</p>  
 
 ## Sinusoidal Pulse Width Modulation (SPWM)
 SPWM is the most commonly used PWM technique for controlling inverters. It generates gating signals by comparing a sinusoidal control signal with a triangular carrier waveform. The frequency of the sinusoidal control signal determines the desired inverter output frequency.
@@ -116,34 +116,6 @@ A three-phase inverter requires six isolated gate drivers for IGBT switch contro
 - Mount HCPL-3120 directly above the IGBT on a small PCB.
 - Avoid routing IGBT collector/emitter traces close to the HCPL-3120 input to prevent signal coupling. If unavoidable, reverse-bias the LED in the off state to prevent unwanted activation from transient signals.
 
-### Selecting the Gate Resistor ($R_g$) to Minimize IGBT Switching Losses:
-The IGBT and $R_g$ can be analyzed as a simple RC circuit with a voltage supplied by the HCPL-3120. The minimum gate resistor can be calculated as follows:
-
-\[ R_g \geq \frac{V_{CC} - V_{EE} - V_{OL}}{IOL_{\text{PEAK}}} \]
-
-Substituting the values:
-
-\[ R_g = \frac{15V + 5V - 2V}{2.5A} = 7.2 \Omega \approx 8 \Omega \]
-
-When negative gate drive is not used, $V_{EE}$ is set to zero volts.
-
-### Design Considerations:
-- IGBTs require a higher gate voltage swing than Si MOSFETs (+20V to -2V / -5V).
-- Negative gate voltage should not go below -5V.
-- Negative driving voltage is not mandatory but is recommended when drain current exceeds 50A.
-- External gate resistance should be selected appropriately to minimize or eliminate ringing in the gate drive circuit.
-- The gate driver must be located as close as possible to the gate to minimize parasitic effects.
-- A 10kΩ resistor between gate and source is recommended to prevent excessive floating of the gate during propagation delay.
-
-## Functional Diagram
-![Functional Diagram of HCPL-3120](Functional_Diagram.png)
-
-## Typical Application Circuit
-![HCPL-3120 Typical Application Circuit](HCPL-3120_Application_Circuit.png)
-
-
-# Isolated Gate Driver Circuit
-
 ## PCB Layout of HCPL-3120
 Designers must pay close attention to PCB layout to achieve optimum performance for the HCPL-3120. The position of low-ESR and low-ESL capacitors near the device is crucial for noise suppression and peak current support. Minimizing loop inductance by limiting the physical area involved in high peak current transitions at transistor gates is essential. Avoiding PCB traces or copper below the driver device preserves high-voltage isolation. Additionally, implementing a PCB layout conducive to heat dissipation, prioritizing increased copper connections to VCC and VEE pins, and employing multiple vias for thermal conductivity while ensuring no overlap between traces or copper from different high-voltage planes enhances performance.
 
@@ -212,9 +184,6 @@ These factors collectively contribute to the reliability and efficiency of the p
 
 <p align="center"><b>Figure 1:</b> 3-D PCB View of Isolated IGBT Gate-Drive Fly-Buck Power Supply</p>  
 
-
-## Conclusion
-
 The design featuring the **HCPL-3120 optocoupler** provides a robust solution for driving Insulated-Gate Bipolar Transistors (IGBTs) in motor control inverter applications. Key features include:
 
 - **Power Supply Rails:** Utilization of +15 V and -8 V secondary side power.
@@ -226,11 +195,9 @@ The design featuring the **HCPL-3120 optocoupler** provides a robust solution fo
 
 Overall, this design effectively addresses the stringent requirements of motor control inverter systems, enhancing efficiency and performance.
 
-
-
 # **Sinusoidal Gate Driver Pulses - Oscilloscope Waveforms**
 
-This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse Width Modulation (SPWM) pulses** generated at the **gate driver output** of a grid-connected inverter. These pulses are essential for proper inverter operation, ensuring efficient power conversion and synchronization with the grid.
+This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse Width Modulation (SPWM) pulses** generated at the **gate driver output** of a grid-connected inverter. These pulses are essential for proper inverter operation, ensing efficient power conversion and synchronization with the grid.
 
 ---
 
@@ -282,6 +249,49 @@ This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse
 
 
 ---
+
+## Hardware Setup
+
+### Figure 1: Hardware Setup Overview
+This image provides a complete view of the **grid-connected PV inverter system**. The labeled components include:
+
+- **Debug Through CCS**: Code Composer Studio (CCS) is used for debugging and flashing firmware onto the microcontroller.
+- **LaunchPad**: Texas Instruments microcontroller development board, which controls the inverter system.
+- **Driver Power Supply**: Supplies power to the gate driver circuits.
+- **Driver Circuit**: Interfaces between the microcontroller and power switches.
+- **Inverter Power Circuit**: The power electronics stage where the DC input is converted to AC for grid connection.
+- **DSO (Digital Storage Oscilloscope)**: Used for waveform monitoring and debugging switching signals.
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20Third%20Leg.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> Complementary Pulse of Third Leg</p>  
+
+
+---
+
+### Figure 2: Gate Driver and Power Circuit
+This image provides a closer look at the **gate driver and power circuits** of the inverter system. Key labeled components include:
+
+- **Transformer**: Steps down or isolates voltages for the power supply.
+- **Bridge Rectifier**: Converts AC voltage to DC voltage for powering the circuit.
+- **Isolated IGBT Gate-Drive Fly-Buck Power Supply**: Provides isolated power to the IGBT gate drivers.
+- **Driver Circuit for First, Second, and Third Leg**: These circuits drive the IGBT switches for each leg of the inverter.
+- **Inverter Power Circuit**: The main inverter switching stage where power conversion occurs.
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20Third%20Leg.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> Complementary Pulse of Third Leg</p>  
+
+
+---
+
+For any questions or contributions, please feel free to open an **issue** or submit a **pull request**!
+
+📧 Contact: your.email@example.com
 
 
 
