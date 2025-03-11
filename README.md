@@ -250,6 +250,49 @@ This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse
 
 ---
 
+## Hardware Setup
+
+### Figure 1: Hardware Setup Overview
+This image provides a complete view of the **grid-connected PV inverter system**. The labeled components include:
+
+- **Debug Through CCS**: Code Composer Studio (CCS) is used for debugging and flashing firmware onto the microcontroller.
+- **LaunchPad**: Texas Instruments microcontroller development board, which controls the inverter system.
+- **Driver Power Supply**: Supplies power to the gate driver circuits.
+- **Driver Circuit**: Interfaces between the microcontroller and power switches.
+- **Inverter Power Circuit**: The power electronics stage where the DC input is converted to AC for grid connection.
+- **DSO (Digital Storage Oscilloscope)**: Used for waveform monitoring and debugging switching signals.
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20Third%20Leg.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> Complementary Pulse of Third Leg</p>  
+
+
+---
+
+### Figure 2: Gate Driver and Power Circuit
+This image provides a closer look at the **gate driver and power circuits** of the inverter system. Key labeled components include:
+
+- **Transformer**: Steps down or isolates voltages for the power supply.
+- **Bridge Rectifier**: Converts AC voltage to DC voltage for powering the circuit.
+- **Isolated IGBT Gate-Drive Fly-Buck Power Supply**: Provides isolated power to the IGBT gate drivers.
+- **Driver Circuit for First, Second, and Third Leg**: These circuits drive the IGBT switches for each leg of the inverter.
+- **Inverter Power Circuit**: The main inverter switching stage where power conversion occurs.
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20Third%20Leg.png" width="500">
+</p>  
+
+<p align="center"><b>Figure 1:</b> Complementary Pulse of Third Leg</p>  
+
+
+---
+
+For any questions or contributions, please feel free to open an **issue** or submit a **pull request**!
+
+📧 Contact: your.email@example.com
+
 
 
 # Hardware Setup
