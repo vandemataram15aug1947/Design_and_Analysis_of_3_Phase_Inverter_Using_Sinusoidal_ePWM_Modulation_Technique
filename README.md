@@ -622,14 +622,14 @@ void initEPWM3()
 
 # **Three-Phase Line-to-Line Voltage Analysis**
 
-This document presents an analysis of three-phase **line-to-line voltage waveforms** measured from an inverter system. The study focuses on key waveform characteristics, including frequency, peak-to-peak (Pk-Pk) values, and switching behavior. The insights gained help in evaluating the performance and quality of the inverter output.
+This analysis of three-phase **line-to-line voltage waveforms** measured from an inverter system. The study focuses on key waveform characteristics, including frequency, peak-to-peak (Pk-Pk) values, and switching behavior. The insights gained help in evaluating the performance and quality of the inverter output.
 
 ## **Captured Waveforms**
 The following line-to-line voltages are analyzed:
 
-- **B-R Voltage** (Blue Phase to Red Phase)
 - **R-Y Voltage** (Red Phase to Yellow Phase)
 - **Y-B Voltage** (Yellow Phase to Blue Phase)
+- **B-R Voltage** (Blue Phase to Red Phase)
 
 ## **Waveform Observations**
 
@@ -637,7 +637,7 @@ The following line-to-line voltages are analyzed:
 - Displays a **stepped structure**, indicating a **PWM-controlled inverter output**.
 - The frequency measurement suggests a periodic switching operation.
 - The presence of switching harmonics suggests the need for filtering.
-- The Peak-to-Peak (Pk-Pk) value is **10.0A**, indicating this is a current waveform.
+- The Peak-to-Peak (Pk-Pk) value is **10.0V**, indicating this is a voltage waveform.
 - The frequency of the signal is **10.1 kHz**, suggesting a switching event.
 
 <p align="center">
@@ -651,7 +651,7 @@ The following line-to-line voltages are analyzed:
 - Displays a stepped waveform with **PWM switching** characteristics.
 - Expected phase shift observed between the line voltages.
 - Some distortions indicate high-frequency switching ripples.
-- The Peak-to-Peak (Pk-Pk) value is not displayed.
+- The Peak-to-Peak (Pk-Pk) value is **50.0V**, indicating this is a voltage waveform.
 - The signal frequency is **42.338 Hz**, which is close to the fundamental grid frequency.
 
 <p align="center">
@@ -663,7 +663,7 @@ The following line-to-line voltages are analyzed:
 ### **3. B-R Voltage**
 - The waveform exhibits a high-frequency component with a fundamental switching frequency.
 - Frequency measurement for Channel 3 was not detected.
-- The Peak-to-Peak (Pk-Pk) value is not displayed.
+- The Peak-to-Peak (Pk-Pk) value is **60.0V**, indicating this is a voltage waveform.
 - The estimated frequency of the signal is **10.1 kHz**.
 
 <p align="center">
