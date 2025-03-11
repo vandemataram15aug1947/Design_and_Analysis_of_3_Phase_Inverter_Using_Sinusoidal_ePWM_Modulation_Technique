@@ -17,7 +17,7 @@ SPWM is the most commonly used PWM technique for controlling inverters. It gener
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/3fcad04b6156f3dbe938ac160a95234b6a028c2a/Photos/Three-Phase%20Inverter%20Circuit.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 1:</b> Three-Phase Inverter Circuit</p>  
+<p align="center"><b>Figure 2:</b> Three-Phase Inverter Circuit</p>  
 
 ### Working Principle
 - When `VcontrolA > Vtri`, `S1` is ON, and `VAN = Vd`.
@@ -253,7 +253,7 @@ This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse
 ## Hardware Setup
 
 ### Figure 1: Hardware Setup Overview
-This image provides a complete view of the **grid-connected PV inverter system**. The labeled components include:
+This image provides a complete view of the **Three Phase Inverter**. The labeled components include:
 
 - **Debug Through CCS**: Code Composer Studio (CCS) is used for debugging and flashing firmware onto the microcontroller.
 - **LaunchPad**: Texas Instruments microcontroller development board, which controls the inverter system.
