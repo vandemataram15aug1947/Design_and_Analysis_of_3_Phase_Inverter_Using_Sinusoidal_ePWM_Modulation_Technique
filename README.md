@@ -14,7 +14,7 @@ This project focuses on the design and analysis of a three-phase inverter using 
 SPWM is the most commonly used PWM technique for controlling inverters. It generates gating signals by comparing a sinusoidal control signal with a triangular carrier waveform. The frequency of the sinusoidal control signal determines the desired inverter output frequency.
 
 <p align="center">
-  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/3fcad04b6156f3dbe938ac160a95234b6a028c2a/Photos/Three-Phase%20Inverter%20Circuit.png" width="500">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/e1b2b467885e3067929d8e213f332bbdff9324c4/Basic%20Photos/Three-Phase%20Inverter%20Circuit.png" width="500">
 </p>  
 
 <p align="center"><b>Figure 2:</b> Three-Phase Inverter Circuit</p>  
@@ -28,7 +28,7 @@ SPWM is the most commonly used PWM technique for controlling inverters. It gener
 - When `VcontrolC < Vtri`, `S6` is ON, and `VCN = 0`.
 
 <p align="center">
-  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/5d0571e88ccee716accb8d8f1b00c4db5c63d833/Photos/SPWM%20Three-Phase%20Inverter%20Waveforms.png" width="500">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/e1b2b467885e3067929d8e213f332bbdff9324c4/Basic%20Photos/SPWM%20Three-Phase%20Inverter%20Waveforms.png" width="500">
 </p>  
 
 <p align="center"><b>Figure 3:</b> SPWM Three-Phase Inverter Waveforms</p>  
@@ -635,6 +635,50 @@ void initEPWM3()
 }
 ```
 
+# Waveform Analysis
+
+## Overview
+This document presents an analysis of three waveforms measured in a power electronics system. Each waveform corresponds to a different phase-to-phase voltage or current measurement, highlighting key parameters such as frequency and peak-to-peak (Pk-Pk) values.
+
+## Observations
+
+### 1. **B-R Voltage (First Image)**
+- The waveform contains a high-frequency component with a fundamental switching frequency.
+- The measurement section does not display a detected frequency for Channel 3.
+- The Peak-to-Peak (Pk-Pk) value is not shown.
+- The estimated frequency of the signal is **10.1 kHz**.
+
+### 2. **R-Y Voltage (Second Image)**
+- The waveform has a structured periodic pattern with a fundamental switching frequency.
+- The Peak-to-Peak (Pk-Pk) value is **10.0A**, indicating this is a current waveform.
+- The frequency of the signal is **10.1 kHz**, suggesting a switching event.
+
+### 3. **Y-B Voltage (Third Image)**
+- The waveform exhibits a higher degree of noise compared to the previous signals.
+- The Peak-to-Peak (Pk-Pk) value is not displayed.
+- The signal frequency is **42.338 Hz**, which is close to the fundamental grid frequency.
+
+## Summary of Peak-to-Peak Values
+| Waveform  | Peak-to-Peak Value |
+|-----------|-------------------|
+| **B-R Voltage (First Image)** | Not displayed |
+| **R-Y Voltage (Second Image)** | 10.0A |
+| **Y-B Voltage (Third Image)** | Not displayed |
+
+## Conclusion
+- The fundamental switching frequency is around **10.1 kHz** for B-R and R-Y voltages.
+- The Y-B voltage waveform aligns with the fundamental grid frequency (~42.338 Hz).
+- The noise levels vary across different measurements, with Y-B voltage being the most affected.
+
+## Future Improvements
+- Ensure frequency detection is properly configured for all channels.
+- Enable peak-to-peak measurements for missing values.
+- Further analyze noise in Y-B voltage and mitigate if necessary.
+
+---
+_This document serves as a reference for waveform analysis in power electronics applications._
+
+
 # **Three-Phase Line-to-Line Voltage Analysis**
 
 ## **Overview**
@@ -648,7 +692,7 @@ The following line-to-line voltages are analyzed:
 - **B-R Voltage** (Blue Phase to Red Phase)
 
 ### **Waveform Observations**
-#### **1. R-Y Voltage (Orange Waveform)**
+#### **15. R-Y Voltage (Orange Waveform)**
 - Displays a **stepped structure**, indicating a **PWM-controlled inverter output**.
 - The frequency measurement suggests a periodic switching operation.
 - The presence of switching harmonics suggests the need for filtering.
@@ -657,10 +701,10 @@ The following line-to-line voltages are analyzed:
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/R-Y%20Voltage.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 1:</b> R-Y Voltage</p>  
+<p align="center"><b>Figure 15:</b> R-Y Voltage</p>  
 
 
-#### **2. Y-B Voltage (Green Waveform)**
+#### **16. Y-B Voltage (Green Waveform)**
 - Similar stepped waveform with **PWM switching** characteristics.
 - Expected phase shift observed between the line voltages.
 - Some distortions indicate high-frequency switching ripples.
@@ -669,10 +713,10 @@ The following line-to-line voltages are analyzed:
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/Y-B%20Voltage.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 1:</b> Y-B Voltagee</p>  
+<p align="center"><b>Figure 16:</b> Y-B Voltagee</p>  
 
 
-#### **3. B-R Voltage (Blue Waveform)**
+#### **17. B-R Voltage (Blue Waveform)**
 - Follows a similar pattern to the other two voltages.
 - Complements the other phase voltages to ensure proper **three-phase balance**.
 - Indicates that the system is operating as a **three-phase inverter**.
@@ -681,10 +725,10 @@ The following line-to-line voltages are analyzed:
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/B-R%20Voltage.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 1:</b> B-R Voltagee</p> 
+<p align="center"><b>Figure 17:</b> B-R Voltagee</p> 
 
 
-#### **3. R-Y Y-B and B-R Voltage**
+#### **18. R-Y Y-B and B-R Voltage**
 
 ## Overview
 This project involves analyzing electrical measurements from a system under test to evaluate voltage, current, and frequency characteristics. The collected data provides insights into the behavior and performance of the circuit.
@@ -693,7 +737,7 @@ This project involves analyzing electrical measurements from a system under test
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/28f2e13306f5c16a3defe625c7269231dfe297fc/Photos/R-Y%20Y-B%20AND%20B-R%20Voltage.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 1:</b> R-Y Y-B and B-R Voltage</p> 
+<p align="center"><b>Figure 18:</b> R-Y Y-B and B-R Voltage</p> 
 
 ## Key Observations
 - **High-Frequency Signal:** A high-frequency signal (>35 kHz) was detected on Channel 1 and Channel 3.
