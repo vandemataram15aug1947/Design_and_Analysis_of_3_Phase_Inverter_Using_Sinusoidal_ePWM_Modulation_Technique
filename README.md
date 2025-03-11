@@ -256,11 +256,10 @@ This image provides a complete view of the **Three Phase Inverter**. The labeled
 - **DSO (Digital Storage Oscilloscope)**: Used for waveform monitoring and debugging switching signals.
 
 <p align="center">
-  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/7734b1baa1d24e3ac16bfd42fc6c65712ce04393/Harware%20Results/Figure%20Hardware%20Setup%20I.png" width="500">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d9e5f748a396e748b9c6d7b8ba87f82251b27a1d/Harware%20Results/Hardware%20Setup%20I.png" width="500">
 </p>  
 
 <p align="center"><b>Figure 13:</b> Figure Hardware Setup I</p>  
-
 
 ---
 
@@ -274,7 +273,7 @@ This image provides a closer look at the **gate driver and power circuits** of t
 - **Inverter Power Circuit**: The main inverter switching stage where power conversion occurs.
 
 <p align="center">
-  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/7734b1baa1d24e3ac16bfd42fc6c65712ce04393/Harware%20Results/Figure%20Hardware%20Setup%20II.png" width="500">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d9e5f748a396e748b9c6d7b8ba87f82251b27a1d/Harware%20Results/Hardware%20Setup%20II.png" width="500">
 </p>  
 
 <p align="center"><b>Figure 14:</b> Figure Hardware Setup II</p>  
