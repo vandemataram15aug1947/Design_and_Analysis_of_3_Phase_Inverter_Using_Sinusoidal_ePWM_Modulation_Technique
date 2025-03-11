@@ -633,7 +633,7 @@ The following line-to-line voltages are analyzed:
 
 ## **Waveform Observations**
 
-### **1. R-Y Voltage**
+### **15. R-Y Voltage**
 - Displays a **stepped structure**, indicating a **PWM-controlled inverter output**.
 - The frequency measurement suggests a periodic switching operation.
 - The presence of switching harmonics suggests the need for filtering.
@@ -646,7 +646,7 @@ The following line-to-line voltages are analyzed:
 
 <p align="center"><b>Figure 15:</b> R-Y Voltage</p>
 
-### **2. Y-B Voltage**
+### **16. Y-B Voltage**
 - The waveform exhibits a higher degree of noise compared to the previous signals.
 - Displays a stepped waveform with **PWM switching** characteristics.
 - Expected phase shift observed between the line voltages.
@@ -660,7 +660,7 @@ The following line-to-line voltages are analyzed:
 
 <p align="center"><b>Figure 16:</b> Y-B Voltage</p>
 
-### **3. B-R Voltage**
+### **17. B-R Voltage**
 - The waveform exhibits a high-frequency component with a fundamental switching frequency.
 - Frequency measurement for Channel 3 was not detected.
 - The Peak-to-Peak (Pk-Pk) value is **60.0V**, indicating this is a voltage waveform.
@@ -672,14 +672,7 @@ The following line-to-line voltages are analyzed:
 
 <p align="center"><b>Figure 17:</b> B-R Voltage</p>
 
-## **Future Improvements**
-- Ensure frequency detection is properly configured for all channels.
-- Enable peak-to-peak measurements for missing values.
-- Further analyze noise in Y-B voltage and implement mitigation strategies.
-
----
-
-#### **18. R-Y Y-B and B-R Voltage**
+### **18. R-Y Y-B and B-R Voltage**
 
 This project involves analyzing electrical measurements from a system under test to evaluate voltage, current, and frequency characteristics. The collected data provides insights into the behavior and performance of the circuit.
 
