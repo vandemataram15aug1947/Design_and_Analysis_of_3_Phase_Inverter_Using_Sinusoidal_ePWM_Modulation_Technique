@@ -682,11 +682,15 @@ This project involves analyzing electrical measurements from a system under test
 
 <p align="center"><b>Figure 18:</b> R-Y Y-B and B-R Voltage</p> 
 
-## Key Observations
-- **High-Frequency Signal:** A high-frequency signal (>35 kHz) was detected on Channel 1 and Channel 3.
-- **Low-Frequency Signal:** Channel 2 recorded a frequency of **34.963 Hz**.
-- **Current Analysis:** The peak-to-peak current on Channel 1 was measured at **11.5 A**, indicating significant fluctuations.
-- **Voltage Levels:** Recorded voltage levels were **20.0 V** and **50.0 V**, likely corresponding to different phases or circuit components (e.g., R-Y, Y-B, B-R).
+## Key Observations  
+
+- **Signal Frequency:** All three channels show a frequency close to **50.9 Hz**, aligning with the grid frequency.  
+- **Peak-to-Peak Voltage:** The peak-to-peak voltage of one waveform is **11.5V**, indicating system voltage variations.  
+- **Waveform Characteristics:**  
+  - **Channel 1 (Orange)** and **Channel 3 (Blue)** exhibit noticeable distortions, likely due to switching effects.  
+  - **Channel 2 (Green)** appears more stable, possibly representing a reference or filtered signal.  
+- **Voltage Levels:** Measured voltage levels are **20.0V** and **50.0V**, likely corresponding to different phases (R-Y, Y-B, B-R).  
+- **Phase Relationship:** The signals are phase-shifted, confirming a **three-phase system**.  
 
 ## **Key Takeaways**
 - The waveforms confirm that the system is a **three-phase inverter** generating AC voltage from a DC source.
