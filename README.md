@@ -327,9 +327,6 @@ Below is the main loop implementation for Open Loop Control of Three Phase Inver
 void initEPWM1(void);
 void initEPWM2(void);
 void initEPWM3(void);
-__interrupt void epwm1ISR(void);
-__interrupt void epwm2ISR(void);
-__interrupt void epwm3ISR(void);
 
 /*
  * Main Loop
@@ -359,9 +356,6 @@ void main(void)
     /*
      * Assign the interrupt service routines to ePWM interrupts
      */
-    Interrupt_register(INT_EPWM1, &epwm1ISR);
-    Interrupt_register(INT_EPWM2, &epwm2ISR);
-    Interrupt_register(INT_EPWM3, &epwm3ISR);
 
     /*
      * Configure GPIO0/1 , GPIO2/3 and GPIO4/5 as ePWM1A/1B, ePWM2A/2B and ePWM3A/3B pins respectively
@@ -491,9 +485,6 @@ void initEPWM1()
     /*
      * Set-Up TBCLK
      */
-    EPWM_setTimeBasePeriod(EPWM1_BASE, EPWM1_TIMER_TBPRD);
-    EPWM_setPhaseShift(EPWM1_BASE, 0U);
-    EPWM_setTimeBaseCounter(EPWM1_BASE, 0U);
 
     /*
      * Set Compare Values
@@ -550,9 +541,6 @@ void initEPWM2()
     /*
      * Set-Up TBCLK
      */
-    EPWM_setTimeBasePeriod(EPWM2_BASE, EPWM2_TIMER_TBPRD);
-    EPWM_setPhaseShift(EPWM2_BASE, 0U);
-    EPWM_setTimeBaseCounter(EPWM2_BASE, 0U);
 
     /*
      * Set Compare Values
@@ -596,9 +584,6 @@ void initEPWM3()
     /*
      * Set-Up TBCLK
      */
-    EPWM_setTimeBasePeriod(EPWM3_BASE, EPWM3_TIMER_TBPRD);
-    EPWM_setPhaseShift(EPWM3_BASE, 0U);
-    EPWM_setTimeBaseCounter(EPWM3_BASE, 0U);
 
     /*
      * Set Compare Values
@@ -635,54 +620,9 @@ void initEPWM3()
 }
 ```
 
-# Waveform Analysis
-
-## Overview
-This document presents an analysis of three waveforms measured in a power electronics system. Each waveform corresponds to a different phase-to-phase voltage or current measurement, highlighting key parameters such as frequency and peak-to-peak (Pk-Pk) values.
-
-## Observations
-
-### 1. **B-R Voltage (First Image)**
-- The waveform contains a high-frequency component with a fundamental switching frequency.
-- The measurement section does not display a detected frequency for Channel 3.
-- The Peak-to-Peak (Pk-Pk) value is not shown.
-- The estimated frequency of the signal is **10.1 kHz**.
-
-### 2. **R-Y Voltage (Second Image)**
-- The waveform has a structured periodic pattern with a fundamental switching frequency.
-- The Peak-to-Peak (Pk-Pk) value is **10.0A**, indicating this is a current waveform.
-- The frequency of the signal is **10.1 kHz**, suggesting a switching event.
-
-### 3. **Y-B Voltage (Third Image)**
-- The waveform exhibits a higher degree of noise compared to the previous signals.
-- The Peak-to-Peak (Pk-Pk) value is not displayed.
-- The signal frequency is **42.338 Hz**, which is close to the fundamental grid frequency.
-
-## Summary of Peak-to-Peak Values
-| Waveform  | Peak-to-Peak Value |
-|-----------|-------------------|
-| **B-R Voltage (First Image)** | Not displayed |
-| **R-Y Voltage (Second Image)** | 10.0A |
-| **Y-B Voltage (Third Image)** | Not displayed |
-
-## Conclusion
-- The fundamental switching frequency is around **10.1 kHz** for B-R and R-Y voltages.
-- The Y-B voltage waveform aligns with the fundamental grid frequency (~42.338 Hz).
-- The noise levels vary across different measurements, with Y-B voltage being the most affected.
-
-## Future Improvements
-- Ensure frequency detection is properly configured for all channels.
-- Enable peak-to-peak measurements for missing values.
-- Further analyze noise in Y-B voltage and mitigate if necessary.
-
----
-_This document serves as a reference for waveform analysis in power electronics applications._
-
-
 # **Three-Phase Line-to-Line Voltage Analysis**
 
-## **Overview**
-This repository contains oscilloscope waveform analysis of three-phase **line-to-line voltages** measured from an inverter system. The data provides insights into the voltage characteristics and switching behavior of the system.
+This analysis of three-phase **line-to-line voltage waveforms** measured from an inverter system. The study focuses on key waveform characteristics, including frequency, peak-to-peak (Pk-Pk) values, and switching behavior. The insights gained help in evaluating the performance and quality of the inverter output.
 
 ## **Captured Waveforms**
 The following line-to-line voltages are analyzed:
@@ -691,59 +631,66 @@ The following line-to-line voltages are analyzed:
 - **Y-B Voltage** (Yellow Phase to Blue Phase)
 - **B-R Voltage** (Blue Phase to Red Phase)
 
-### **Waveform Observations**
-#### **15. R-Y Voltage (Orange Waveform)**
+## **Waveform Observations**
+
+### **15. R-Y Voltage**
 - Displays a **stepped structure**, indicating a **PWM-controlled inverter output**.
 - The frequency measurement suggests a periodic switching operation.
 - The presence of switching harmonics suggests the need for filtering.
+- The Peak-to-Peak (Pk-Pk) value is **10.0V**, indicating this is a voltage waveform.
+- The frequency of the signal is **10.1 kHz**, suggesting a switching event.
 
- <p align="center">
+<p align="center">
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/R-Y%20Voltage.png" width="500">
-</p>  
+</p>
 
-<p align="center"><b>Figure 15:</b> R-Y Voltage</p>  
+<p align="center"><b>Figure 15:</b> R-Y Voltage</p>
 
-
-#### **16. Y-B Voltage (Green Waveform)**
-- Similar stepped waveform with **PWM switching** characteristics.
+### **16. Y-B Voltage**
+- The waveform exhibits a higher degree of noise compared to the previous signals.
+- Displays a stepped waveform with **PWM switching** characteristics.
 - Expected phase shift observed between the line voltages.
 - Some distortions indicate high-frequency switching ripples.
+- The Peak-to-Peak (Pk-Pk) value is **50.0V**, indicating this is a voltage waveform.
+- The signal frequency is **42.338 Hz**, which is close to the fundamental grid frequency.
 
- <p align="center">
+<p align="center">
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/Y-B%20Voltage.png" width="500">
-</p>  
+</p>
 
-<p align="center"><b>Figure 16:</b> Y-B Voltagee</p>  
+<p align="center"><b>Figure 16:</b> Y-B Voltage</p>
 
+### **17. B-R Voltage**
+- The waveform exhibits a high-frequency component with a fundamental switching frequency.
+- Frequency measurement for Channel 3 was not detected.
+- The Peak-to-Peak (Pk-Pk) value is **60.0V**, indicating this is a voltage waveform.
+- The estimated frequency of the signal is **10.1 kHz**.
 
-#### **17. B-R Voltage (Blue Waveform)**
-- Follows a similar pattern to the other two voltages.
-- Complements the other phase voltages to ensure proper **three-phase balance**.
-- Indicates that the system is operating as a **three-phase inverter**.
-
- <p align="center">
+<p align="center">
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/B-R%20Voltage.png" width="500">
-</p>  
+</p>
 
-<p align="center"><b>Figure 17:</b> B-R Voltagee</p> 
+<p align="center"><b>Figure 17:</b> B-R Voltage</p>
 
+### **18. R-Y Y-B and B-R Voltage**
 
-#### **18. R-Y Y-B and B-R Voltage**
-
-## Overview
 This project involves analyzing electrical measurements from a system under test to evaluate voltage, current, and frequency characteristics. The collected data provides insights into the behavior and performance of the circuit.
 
  <p align="center">
-  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/28f2e13306f5c16a3defe625c7269231dfe297fc/Photos/R-Y%20Y-B%20AND%20B-R%20Voltage.png" width="500">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/242a99f0ca10239429fa98871fd4797d9a27eba6/Harware%20Results/R-Y%20Y-B%20and%20B-R%20Voltage.png" width="500">
 </p>  
 
 <p align="center"><b>Figure 18:</b> R-Y Y-B and B-R Voltage</p> 
 
-## Key Observations
-- **High-Frequency Signal:** A high-frequency signal (>35 kHz) was detected on Channel 1 and Channel 3.
-- **Low-Frequency Signal:** Channel 2 recorded a frequency of **34.963 Hz**.
-- **Current Analysis:** The peak-to-peak current on Channel 1 was measured at **11.5 A**, indicating significant fluctuations.
-- **Voltage Levels:** Recorded voltage levels were **20.0 V** and **50.0 V**, likely corresponding to different phases or circuit components (e.g., R-Y, Y-B, B-R).
+## Key Observations  
+
+- **Signal Frequency:** All three channels show a frequency close to **50.9 Hz**, aligning with the grid frequency.  
+- **Peak-to-Peak Voltage:** The peak-to-peak voltage of one waveform is **11.5V**, indicating system voltage variations.  
+- **Waveform Characteristics:**  
+  - **Channel 1 (Orange)** and **Channel 3 (Blue)** exhibit noticeable distortions, likely due to switching effects.  
+  - **Channel 2 (Green)** appears more stable, possibly representing a reference or filtered signal.  
+- **Voltage Levels:** Measured voltage levels are **20.0V** and **50.0V**, likely corresponding to different phases (R-Y, Y-B, B-R).  
+- **Phase Relationship:** The signals are phase-shifted, confirming a **three-phase system**.  
 
 ## **Key Takeaways**
 - The waveforms confirm that the system is a **three-phase inverter** generating AC voltage from a DC source.
