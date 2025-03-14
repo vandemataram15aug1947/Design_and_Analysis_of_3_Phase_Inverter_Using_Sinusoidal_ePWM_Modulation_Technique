@@ -139,6 +139,13 @@ Designers must pay close attention to PCB layout to achieve optimum performance 
 
 <p align="center"><b>Figure 6:</b> 3-D PCB View of HCPL-3120</p>  
 
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/a3709830416dd4c9c5e6d3540ec9e2a5e33ace8e/Harware%20Results/DIP%20Final%20Assembled%20Gate%20Driver%20PCB%20Design.jpg" width="500">
+</p>  
+
+<p align="center"><b>Figure 7:</b> DIP Final Assembled Gate Driver PCB Design</p>  
+
 ## PCB Material
 Use a standard FR-4 UL94V-0 printed circuit board. This PCB is preferred over cheaper alternatives due to its lower dielectric losses at high frequencies, reduced moisture absorption, greater strength and stiffness, and self-extinguishing flammability characteristics.
 
@@ -161,21 +168,28 @@ These factors collectively contribute to the reliability and efficiency of the p
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/f1168b190ff3ca423b499d784347bdb3500c5ab5/Harware%20Results/Top-Layer%20Traces%20and%20Copper%20of%20Isolated%20IGBT%20Gate-Drive%20Fly-Buck%20Power%20Supply.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 7:</b> Top-Layer Traces and Copper of Isolated IGBT Gate-Drive Fly-Buck Power Supply</p>  
+<p align="center"><b>Figure 8:</b> Top-Layer Traces and Copper of Isolated IGBT Gate-Drive Fly-Buck Power Supply</p>  
 
 
 <p align="center">
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/91240a8fe3cca4f18bac834dcd7f46aca3874d62/Harware%20Results/Bottom-Layer%20Traces%20and%20Copper%20of%20Isolated%20IGBT%20Gate-Drive%20Fly-Buck%20Power%20Supply.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 8:</b> Bottom-Layer Traces and Copper of Isolated IGBT Gate-Drive Fly-Buck Power Supply</p>  
+<p align="center"><b>Figure 9:</b> Bottom-Layer Traces and Copper of Isolated IGBT Gate-Drive Fly-Buck Power Supply</p>  
 
 
 <p align="center">
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/91240a8fe3cca4f18bac834dcd7f46aca3874d62/Harware%20Results/3-D%20PCB%20View%20of%20Isolated%20IGBT%20Gate-Drive%20Fly-Buck%20Power%20Supply.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 9:</b> 3-D PCB View of Isolated IGBT Gate-Drive Fly-Buck Power Supply</p>  
+<p align="center"><b>Figure 10:</b> 3-D PCB View of Isolated IGBT Gate-Drive Fly-Buck Power Supply</p>  
+
+
+<p align="center">
+  <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/a3709830416dd4c9c5e6d3540ec9e2a5e33ace8e/Harware%20Results/SMD%20Final%20Assembled%20of%20Isolated%20IGBT%20Gate-Drive%20Fly-Buck%20Power%20Supply.jpg" width="500">
+</p>  
+
+<p align="center"><b>Figure 11:</b> SMD Final Assembled of Isolated IGBT Gate-Drive Fly-Buck Power Supply</p>  
 
 The design featuring the **HCPL-3120 optocoupler** provides a robust solution for driving Insulated-Gate Bipolar Transistors (IGBTs) in motor control inverter applications. Key features include:
 
@@ -207,7 +221,7 @@ This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/caa95a6e15a9e61679de4978e6f9ee936a26b863/Harware%20Results/Complementary%20Pulse%20of%20First%20Leg.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 10:</b> Complementary Pulse of First Leg</p>  
+<p align="center"><b>Figure 12:</b> Complementary Pulse of First Leg</p>  
 
 ---
 
@@ -222,7 +236,7 @@ This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20Second%20Leg.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 11:</b> Complementary Pulse of Second Leg</p>  
+<p align="center"><b>Figure 13:</b> Complementary Pulse of Second Leg</p>  
 
 
 ---
@@ -238,7 +252,7 @@ This repository contains oscilloscope captures showcasing the **Sinusoidal Pulse
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/518117f414c165d830b5fbdeba2136aaa120c36b/Harware%20Results/Complementary%20Pulse%20of%20Third%20Leg.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 12:</b> Complementary Pulse of Third Leg</p>  
+<p align="center"><b>Figure 14:</b> Complementary Pulse of Third Leg</p>  
 
 
 ---
@@ -259,7 +273,7 @@ This image provides a complete view of the **Three Phase Inverter**. The labeled
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d9e5f748a396e748b9c6d7b8ba87f82251b27a1d/Harware%20Results/Hardware%20Setup%20I.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 13:</b> Figure Hardware Setup I</p>  
+<p align="center"><b>Figure 15:</b> Figure Hardware Setup I</p>  
 
 ---
 
@@ -276,7 +290,7 @@ This image provides a closer look at the **gate driver and power circuits** of t
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d9e5f748a396e748b9c6d7b8ba87f82251b27a1d/Harware%20Results/Hardware%20Setup%20II.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 14:</b> Figure Hardware Setup II</p>  
+<p align="center"><b>Figure 16:</b> Figure Hardware Setup II</p>  
 
 ---
 
@@ -643,7 +657,7 @@ The following line-to-line voltages are analyzed:
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/R-Y%20Voltage.png" width="500">
 </p>
 
-<p align="center"><b>Figure 15:</b> R-Y Voltage</p>
+<p align="center"><b>Figure 17:</b> R-Y Voltage</p>
 
 ### **16. Y-B Voltage**
 - The waveform exhibits a higher degree of noise compared to the previous signals.
@@ -657,7 +671,7 @@ The following line-to-line voltages are analyzed:
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/Y-B%20Voltage.png" width="500">
 </p>
 
-<p align="center"><b>Figure 16:</b> Y-B Voltage</p>
+<p align="center"><b>Figure 18:</b> Y-B Voltage</p>
 
 ### **17. B-R Voltage**
 - The waveform exhibits a high-frequency component with a fundamental switching frequency.
@@ -669,7 +683,7 @@ The following line-to-line voltages are analyzed:
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/d02c4d3035adfe3556873c35c5fe58bc104deb8c/Photos/B-R%20Voltage.png" width="500">
 </p>
 
-<p align="center"><b>Figure 17:</b> B-R Voltage</p>
+<p align="center"><b>Figure 19:</b> B-R Voltage</p>
 
 ### **18. R-Y Y-B and B-R Voltage**
 
@@ -679,7 +693,7 @@ This project involves analyzing electrical measurements from a system under test
   <img src="https://github.com/vandemataram15aug1947/Design_and_Analysis_of_3_Phase_Inverter_Using_Sinusoidal_ePWM_Modulation_Technique/blob/242a99f0ca10239429fa98871fd4797d9a27eba6/Harware%20Results/R-Y%20Y-B%20and%20B-R%20Voltage.png" width="500">
 </p>  
 
-<p align="center"><b>Figure 18:</b> R-Y Y-B and B-R Voltage</p> 
+<p align="center"><b>Figure 20:</b> R-Y Y-B and B-R Voltage</p> 
 
 ## Key Observations  
 
